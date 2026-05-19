@@ -10,7 +10,7 @@ export default function PublicLaporanPage() {
     <main className="mx-auto w-full max-w-6xl p-4 sm:p-6 lg:px-8 pt-8">
       <div className="mb-8">
         <h1 className="text-3xl font-extrabold tracking-tight text-gradient-accent">Laporan Warga</h1>
-        <p className="mt-2 text-base text-[var(--app-text-muted)]">Preview dan unduh laporan keuangan resmi RT.</p>
+        <p className="mt-2 text-base text-[var(--app-text-muted)]">Preview dan unduh laporan keuangan resmi perumahan.</p>
       </div>
       <LaporanClient />
       <div className="mt-8">

@@ -30,6 +30,7 @@ const adminNavItems: NavItem[] = [
   { href: "/admin/takjil", label: "Takjil", match: (p) => p.startsWith("/admin/takjil") },
   { href: "/admin/agenda", label: "Agenda", match: (p) => p.startsWith("/admin/agenda") },
   { href: "/admin/laporan", label: "Laporan", match: (p) => p.startsWith("/admin/laporan") },
+  { href: "/admin/pengurus", label: "Pengurus", match: (p) => p.startsWith("/admin/pengurus") },
 ];
 
 function navClass(active: boolean) {
@@ -82,6 +83,14 @@ export function AppHeader({ isAdmin = false }: { isAdmin?: boolean }) {
           </nav>
         </div>
         <div className="flex items-center gap-2 shrink-0">
+          {!isAdmin && (
+            <Link
+              href="/login"
+              className="inline-flex h-9 items-center justify-center rounded-xl bg-[var(--app-surface-2)] border border-[var(--app-border-soft)] px-3.5 text-xs font-bold text-[var(--app-text)] hover:bg-[var(--app-accent-glow)] hover:text-[var(--app-accent)] hover:border-[var(--app-accent)] transition-all duration-300"
+            >
+              Login Pengurus
+            </Link>
+          )}
           <ThemeToggle />
           {isAdmin && (
             <button

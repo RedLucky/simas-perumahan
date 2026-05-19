@@ -101,7 +101,7 @@ async function getAdminSnapshotName(
     throw new Error(`Failed fetching admin profile: ${error.message}`);
   }
 
-  return data?.full_name ?? "Ketua RT";
+  return data?.full_name ?? "Ketua Pengurus perumahan";
 }
 
 function normalizeInput(parsed: CreateIuranPaymentInput) {

@@ -30,7 +30,7 @@ export default async function PublicDashboardPage() {
           Selamat Datang, Warga.
         </h1>
         <p className="max-w-2xl text-base sm:text-lg text-[var(--app-text-muted)]">
-          Akses status iuran, kas RT, agenda warga, dan jadwal takjil dalam satu platform terpadu yang ringkas dan transparan.
+          Akses status iuran, kas perumahan, agenda warga, dan jadwal takjil dalam satu platform terpadu yang ringkas dan transparan.
         </p>
       </div>
 
@@ -47,6 +47,7 @@ export default async function PublicDashboardPage() {
             <Link href="/iuran"><Button className="w-full sm:w-auto shadow-[0_4px_14px_0_var(--app-accent-glow)]">Cek Status Iuran</Button></Link>
             <Link href="/keuangan"><Button variant="outline" className="w-full sm:w-auto">Laporan Keuangan</Button></Link>
             <Link href="/agenda"><Button variant="outline" className="w-full sm:w-auto">Agenda Warga</Button></Link>
+            <Link href="/login"><Button variant="ghost" className="w-full sm:w-auto border border-dashed border-[var(--app-border)] hover:border-[var(--app-accent)] hover:bg-[var(--app-accent-glow)] hover:text-[var(--app-accent)]">Portal Pengurus</Button></Link>
           </div>
         </Card>
 

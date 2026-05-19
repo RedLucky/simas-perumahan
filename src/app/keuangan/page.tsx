@@ -70,7 +70,7 @@ export default async function PublicKeuanganPage({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
           <h1 className="text-3xl font-extrabold tracking-tight text-gradient-accent">Laporan Keuangan</h1>
-          <p className="mt-2 text-sm text-[var(--app-text-muted)]">Transparansi pemasukan, pengeluaran, dan saldo kas RT.</p>
+          <p className="mt-2 text-sm text-[var(--app-text-muted)]">Transparansi pemasukan, pengeluaran, dan saldo kas perumahan.</p>
         </div>
         <form action="/keuangan" className="flex items-center gap-2 glass-panel p-2 rounded-xl">
           <input

@@ -10,7 +10,7 @@ async function getAdminSnapshotName(supabase: SupabaseClient, userId: string): P
     .maybeSingle();
 
   if (error) throw new Error(`Failed fetching admin profile: ${error.message}`);
-  return data?.full_name ?? "Ketua RT";
+  return data?.full_name ?? "Ketua Pengurus perumahan";
 }
 
 export async function createAgendaPost(supabase: SupabaseClient, rawInput: unknown, userId: string) {
