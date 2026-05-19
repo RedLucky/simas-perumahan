@@ -34,7 +34,7 @@ export async function generateRamadanDraft(supabase: SupabaseClient, rawInput: u
     .from("houses")
     .select("id, code")
     .eq("is_active", true)
-    .order("code", { ascending: true });
+    .order("order_number", { ascending: true });
 
   if (housesError) throw new Error(`Failed fetching houses: ${housesError.message}`);
   if (!houses || houses.length === 0) throw new Error("No active houses found.");

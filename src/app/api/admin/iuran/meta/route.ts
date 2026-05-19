@@ -15,7 +15,7 @@ export async function GET() {
     .from("houses")
     .select("id, code, display_name")
     .eq("is_active", true)
-    .order("code", { ascending: true });
+    .order("order_number", { ascending: true });
 
   if (error) {
     return NextResponse.json({ ok: false, message: error.message }, { status: 500 });

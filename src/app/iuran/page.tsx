@@ -7,6 +7,7 @@ type IuranRow = {
   house_id: string;
   code: string;
   display_name: string;
+  order_number: number;
   month_key: string;
   due_in_month: number;
   paid_in_month: number;
@@ -46,14 +47,15 @@ export default async function PublicIuranPage({
   const supabase = await createSupabaseServerClient();
   const { data } = await supabase
     .from("monthly_dues_arrears_by_house")
-    .select("house_id, code, display_name, month_key, due_in_month, paid_in_month, arrears_balance, payment_status")
+    .select("house_id, code, display_name, order_number, month_key, due_in_month, paid_in_month, arrears_balance, payment_status")
     .eq("month_key", monthKey)
-    .order("code", { ascending: true });
+    .order("order_number", { ascending: true });
 
   const rows: IuranRow[] = (data ?? []).map((row) => ({
     house_id: row.house_id,
     code: row.code,
     display_name: row.display_name,
+    order_number: Number(row.order_number),
     month_key: row.month_key,
     due_in_month: Number(row.due_in_month),
     paid_in_month: Number(row.paid_in_month),

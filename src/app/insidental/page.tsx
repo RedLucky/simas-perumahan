@@ -74,7 +74,7 @@ export default async function PublicInsidentalPage({
     .from("houses")
     .select("id, code, display_name")
     .eq("is_active", true)
-    .order("code", { ascending: true });
+    .order("order_number", { ascending: true });
 
   const events = (eventsRaw ?? []).map((event) => ({
     ...event,

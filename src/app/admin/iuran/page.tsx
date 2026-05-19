@@ -28,7 +28,7 @@ export default async function AdminIuranPage() {
       .from("houses")
       .select("id, code, display_name")
       .eq("is_active", true)
-      .order("code", { ascending: true }),
+      .order("order_number", { ascending: true }),
     supabase
       .from("monthly_dues_payments")
       .select(

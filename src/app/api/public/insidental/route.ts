@@ -22,7 +22,7 @@ export async function GET(request: Request) {
         .eq("event_year", year)
         .eq("is_active", true)
         .order("event_type", { ascending: true }),
-      supabase.from("houses").select("id, code, display_name").eq("is_active", true).order("code", { ascending: true }),
+      supabase.from("houses").select("id, code, display_name").eq("is_active", true).order("order_number", { ascending: true }),
       supabase
         .from("incidental_payments")
         .select("id, event_id, house_id, paid_amount")

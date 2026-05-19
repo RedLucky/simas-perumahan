@@ -9,6 +9,7 @@ export type HouseWithContact = {
   updated_at: string;
   contact_name: string | null;
   contact_phone: string | null;
+  order_number: number;
 };
 
 /**
@@ -18,8 +19,8 @@ export type HouseWithContact = {
 export async function getHousesWithContacts(supabase: SupabaseClient): Promise<HouseWithContact[]> {
   const { data, error } = await supabase
     .from("houses")
-    .select("id, code, display_name, is_active, created_at, updated_at, contact_name, contact_phone")
-    .order("code", { ascending: true });
+    .select("id, code, display_name, is_active, created_at, updated_at, contact_name, contact_phone, order_number")
+    .order("order_number", { ascending: true });
 
   if (error) {
     throw new Error(`Gagal mengambil data rumah: ${error.message}`);

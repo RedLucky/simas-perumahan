@@ -18,7 +18,7 @@ export default async function AdminInsidentalPage() {
   const supabase = await createSupabaseServerClient();
 
   const [{ data: houses }, { data: eventsRaw }] = await Promise.all([
-    supabase.from("houses").select("id, code, display_name").eq("is_active", true).order("code", { ascending: true }),
+    supabase.from("houses").select("id, code, display_name").eq("is_active", true).order("order_number", { ascending: true }),
     supabase
       .from("incidental_events")
       .select("id, event_year, event_type, amount, is_active, note")

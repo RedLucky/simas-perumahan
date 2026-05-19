@@ -14,9 +14,9 @@ export async function GET(request: Request) {
 
   const { data, error } = await supabase
     .from("monthly_dues_arrears_by_house")
-    .select("house_id, code, display_name, month_key, due_in_month, paid_in_month, arrears_balance, payment_status")
+    .select("house_id, code, display_name, order_number, month_key, due_in_month, paid_in_month, arrears_balance, payment_status")
     .eq("month_key", monthKey)
-    .order("code", { ascending: true });
+    .order("order_number", { ascending: true });
 
   if (error) {
     return NextResponse.json({ ok: false, message: error.message }, { status: 500 });

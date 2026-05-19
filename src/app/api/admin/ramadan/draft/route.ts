@@ -27,7 +27,7 @@ export async function GET(request: Request) {
       .eq("ramadan_year", year)
       .order("day_number", { ascending: true })
       .order("assignment_type", { ascending: true }),
-    supabase.from("houses").select("id, code, display_name").eq("is_active", true).order("code", { ascending: true }),
+    supabase.from("houses").select("id, code, display_name").eq("is_active", true).order("order_number", { ascending: true }),
   ]);
 
   if (error || housesError) {
