@@ -77,3 +77,25 @@ select
 from cumulative;
 
 grant select on public.monthly_dues_arrears_by_house to anon, authenticated;
+
+-- SECURITY FIX: Resolve infinite recursion in RLS policies on the admin_profiles table.
+-- Redefining public.is_admin_user() as SECURITY DEFINER with set search_path so it
+-- executes with privileges of the owner (postgres), safely bypassing the RLS check
+-- on admin_profiles while preventing search path hijacking.
+create or replace function public.is_admin_user()
+returns boolean
+language plpgsql
+security definer
+set search_path = public
+stable
+as $$
+begin
+  return exists (
+    select 1
+    from public.admin_profiles ap
+    where ap.user_id = auth.uid()
+      and ap.is_active = true
+  );
+end;
+$$;
+

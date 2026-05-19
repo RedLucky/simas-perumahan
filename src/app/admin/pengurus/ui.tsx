@@ -83,7 +83,7 @@ export function PengurusAdminClient({
 
       await loadProfiles();
       router.refresh();
-    } catch (err) {
+    } catch {
       setSubmitting(false);
       setError("Terjadi kesalahan koneksi internet.");
     }
@@ -140,7 +140,7 @@ export function PengurusAdminClient({
 
       await loadProfiles();
       router.refresh();
-    } catch (err) {
+    } catch {
       setUpdatingId(null);
       setError("Gagal mengubah status pengurus.");
     }

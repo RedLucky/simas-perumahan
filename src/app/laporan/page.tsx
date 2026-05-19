@@ -2,8 +2,7 @@ export const dynamic = "force-dynamic";
 
 import Link from "next/link";
 import { LaporanClient } from "./ui";
-import { Button } from "@/components/ui/button";
-import { SectionHeader } from "@/components/ui/section-header";
+
 
 export default function PublicLaporanPage() {
   return (

@@ -13,25 +13,31 @@ function applyTheme(theme: Theme) {
 }
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window === "undefined") return "light";
-    return localStorage.getItem(STORAGE_KEY) === "dark" ? "dark" : "light";
-  });
-  
+  const [theme, setTheme] = useState<Theme>("light");
   const [mounted, setMounted] = useState(false);
 
+  // Initialize theme from localStorage once on mount
   useEffect(() => {
-    setMounted(true);
+    const savedTheme = localStorage.getItem(STORAGE_KEY) === "dark" ? "dark" : "light";
+    applyTheme(savedTheme);
+    setTimeout(() => {
+      setTheme(savedTheme);
+      setMounted(true);
+    }, 0);
+  }, []);
+
+  // Update theme in localStorage & classList when state changes (after mounting)
+  useEffect(() => {
+    if (!mounted) return;
     applyTheme(theme);
     localStorage.setItem(STORAGE_KEY, theme);
-  }, [theme]);
+  }, [theme, mounted]);
 
   function toggle() {
     const next: Theme = theme === "dark" ? "light" : "dark";
     setTheme(next);
-    localStorage.setItem(STORAGE_KEY, next);
-    applyTheme(next);
   }
+
 
   // Prevent hydration mismatch
   if (!mounted) {
