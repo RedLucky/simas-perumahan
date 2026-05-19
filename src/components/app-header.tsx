@@ -30,6 +30,7 @@ const adminNavItems: NavItem[] = [
   { href: "/admin/takjil", label: "Takjil", match: (p) => p.startsWith("/admin/takjil") },
   { href: "/admin/agenda", label: "Agenda", match: (p) => p.startsWith("/admin/agenda") },
   { href: "/admin/laporan", label: "Laporan", match: (p) => p.startsWith("/admin/laporan") },
+  { href: "/admin/rumah", label: "Rumah", match: (p) => p.startsWith("/admin/rumah") },
   { href: "/admin/pengurus", label: "Pengurus", match: (p) => p.startsWith("/admin/pengurus") },
 ];
 

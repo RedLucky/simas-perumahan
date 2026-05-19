@@ -14,9 +14,14 @@ export async function createSupabaseServerClient() {
           return cookieStore.getAll();
         },
         setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) => {
-            cookieStore.set(name, value, options);
-          });
+          try {
+            cookiesToSet.forEach(({ name, value, options }) => {
+              cookieStore.set(name, value, options);
+            });
+          } catch {
+            // Diabaikan: Next.js melarang penulisan cookie di dalam Server Component render context.
+            // Refresh cookie akan ditangani oleh Middleware atau Route Handler pada request berikutnya.
+          }
         },
       },
     },

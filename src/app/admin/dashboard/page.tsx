@@ -86,6 +86,15 @@ export default async function AdminDashboardPage() {
       ),
     },
     {
+      title: "Kelola Data Rumah",
+      description: "Atur kontak nama & nomor HP masing-masing rumah warga.",
+      href: "/admin/rumah",
+      color: "from-sky-500/20 to-blue-500/20 text-sky-600 hover:shadow-sky-500/10",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      ),
+    },
+    {
       title: "Kelola Pengurus",
       description: "Tambah pengurus baru & lakukan serah terima jabatan.",
       href: "/admin/pengurus",
