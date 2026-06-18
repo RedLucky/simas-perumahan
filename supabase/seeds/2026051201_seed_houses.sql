@@ -31,8 +31,7 @@ values
   ('MR-29', 'Mastrip Residence 29', 29),
   ('MR-30', 'Mastrip Residence 30', 30),
   ('MR-31', 'Mastrip Residence 31', 31),
-  ('MR-32', 'Mastrip Residence 32', 32),
-  ('MR-33', 'Mastrip Residence 33', 33)
+  ('MR-32', 'Mastrip Residence 32', 32)
 on conflict (code) do update
 set
   display_name = excluded.display_name,
